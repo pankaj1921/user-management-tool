@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import { authenticateToken } from '../middleware/authMiddleware.js';
-import { authorizeRoles } from '../middleware/roleMiddleware.js'; // Optional, for admin access
+//import { authorizeRoles } from '../middleware/roleMiddleware.js'; // Optional, for admin access
 
 const router = express.Router();
 
@@ -61,9 +61,9 @@ router.get('/secure', authenticateToken, (req, res) => {
 });
 
 // GET /api/admin (only for admin role)
-router.get('/admin', authenticateToken, authorizeRoles('admin'), (req, res) => {
-  res.json({ message: 'Welcome, Admin! You have access.' });
-});
+//router.get('/admin', authenticateToken, authorizeRoles('admin'), (req, res) => {
+ // res.json({ message: 'Welcome, Admin! You have access.' });
+//});
 
 export default router;
 
